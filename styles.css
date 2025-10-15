@@ -1,11 +1,8 @@
 /* ====== Paleta y variables ====== */
 :root {
   --bg-dark-1: #0a0f14;
-  /* fondo profundo */
   --bg-dark-2: #0f1720;
-  /* degradado secundario */
   --accent-gold: #b8862b;
-  /* dorado elegante */
   --accent-amber: #d89b3a;
   --muted: #9aa3ab;
   --card-glass: rgba(255, 255, 255, 0.04);
@@ -40,7 +37,7 @@ body {
   line-height: 1.5;
 }
 
-/* ====== Fondo: acuarela + vignette + textura ====== */
+/* fondo y overlays */
 body::before {
   content: "";
   position: fixed;
@@ -64,88 +61,14 @@ body::after {
   z-index: 1;
 }
 
-/* ====== Blobs decorativos (colores vivos, animados) ====== */
-@keyframes floatA {
-  0% {
-    transform: translate(0, 0) scale(1)
-  }
-
-  50% {
-    transform: translate(5vw, -3vh) scale(1.02)
-  }
-
-  100% {
-    transform: translate(0, 0) scale(1)
-  }
-}
-
-@keyframes floatB {
-  0% {
-    transform: translate(0, 0) scale(1)
-  }
-
-  50% {
-    transform: translate(-6vw, 4vh) scale(0.98)
-  }
-
-  100% {
-    transform: translate(0, 0) scale(1)
-  }
-}
-
-#contenedor {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.blob-wrap {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.blob-a,
-.blob-b {
-  position: absolute;
-  filter: blur(80px) saturate(135%);
-  opacity: 0.95;
-  transform-origin: center;
-}
-
-.blob-a {
-  left: -12vw;
-  top: -18vh;
-  width: 80vw;
-  height: 80vh;
-  background: radial-gradient(40% 40% at 20% 30%, rgba(184, 134, 43, 0.38), transparent 36%),
-    radial-gradient(50% 50% at 80% 70%, rgba(216, 155, 58, 0.12), transparent 34%);
-  animation: floatA 20s ease-in-out infinite;
-}
-
-.blob-b {
-  right: -8vw;
-  bottom: -10vh;
-  width: 60vw;
-  height: 60vh;
-  background: radial-gradient(45% 45% at 10% 80%, rgba(184, 134, 43, 0.20), transparent 36%),
-    radial-gradient(40% 40% at 80% 10%, rgba(20, 34, 50, 0.07), transparent 40%);
-  animation: floatB 28s ease-in-out infinite;
-}
-
-/* textura superpuesta */
-.texture-overlay {
-  position: fixed;
-  inset: 0;
-  background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.01) 0 1px, transparent 1px 14px);
-  opacity: 0.25;
-  pointer-events: none;
-  z-index: 3;
-}
-
 /* asegurar contenido por delante */
+
+header {
+  position: relative;
+  z-index: 5;
+}
+
 .container,
-header,
 main,
 section {
   position: relative;
@@ -155,6 +78,11 @@ section {
 /* ====== Layout container ====== */
 .container {
   max-width: var(--container);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 /* ====== Header / Nav ====== */
@@ -181,6 +109,7 @@ section {
   width: 5rem;
   height: 5rem;
   object-fit: cover;
+  display: block;
 }
 
 .brand h1 {
@@ -208,12 +137,69 @@ nav.links a {
   color: white;
   font-weight: 600;
   font-size: 14px;
+  text-decoration: none;
 }
 
 nav.links a:hover {
   color: black;
 }
 
+/* menu toggle (móvil) */
+.menu-toggle {
+  display: none;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.menu-toggle .bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: white;
+  position: relative;
+}
+
+.menu-toggle .bar::before,
+.menu-toggle .bar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 22px;
+  height: 2px;
+  background: white;
+  transition: transform .22s ease;
+}
+
+.menu-toggle .bar::before {
+  top: -7px;
+}
+
+.menu-toggle .bar::after {
+  top: 7px;
+}
+
+/* .open state (simple animation) */
+.menu-toggle[aria-expanded="true"] .bar {
+  background: transparent;
+}
+
+.menu-toggle[aria-expanded="true"] .bar::before {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .bar::after {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* botones */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -225,7 +211,6 @@ nav.links a:hover {
   font-size: 14px;
 }
 
-/* botones */
 .btn-primary {
   background: linear-gradient(90deg, var(--accent-gold), var(--accent-amber));
   color: white;
@@ -254,14 +239,15 @@ nav.links a:hover {
 
 .hero-left {
   flex: 1 1 520px;
-  min-width: 300px;
+  min-width: 0;
+  /* importante para evitar overflow en móvil */
   color: #eaf6ff;
 }
 
 .hero-left h2 {
   font-family: "Playfair Display", serif;
   font-weight: 700;
-  font-size: 48px;
+  font-size: clamp(22px, 5vw, 48px);
   margin: 0;
   line-height: 1.02;
   letter-spacing: -0.02em;
@@ -282,11 +268,13 @@ nav.links a:hover {
   gap: 26px;
   color: white;
   font-size: 14px;
+  flex-wrap: wrap;
 }
 
 /* hero card */
 .hero-right {
   flex: 0 0 420px;
+  min-width: 280px;
 }
 
 .card {
@@ -351,13 +339,7 @@ nav.links a:hover {
   justify-content: space-between;
   padding: 18px 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.02);
-  background: linear-gradient(-360deg, black 0%, gray 33%);
-  border: 1px solid white;
-}
-
-.card-head {
-  font-weight: 700;
-  color: #fff;
+  background: linear-gradient(-360deg, rgba(0, 0, 0, 0.6) 0%, rgba(70, 70, 70, 0.12) 33%);
 }
 
 /* ====== Secciones ====== */
@@ -561,8 +543,28 @@ select {
     grid-template-columns: 1fr;
   }
 
+  /* ocultar links y mostrar botón */
   nav.links {
     display: none;
+    position: absolute;
+    right: 16px;
+    top: 72px;
+    background: rgba(10, 14, 18, 0.95);
+    border-radius: 12px;
+    padding: 12px;
+    flex-direction: column;
+    gap: 12px;
+    width: calc(100% - 32px);
+    max-width: 360px;
+    box-shadow: 0 12px 40px rgba(2, 6, 23, 0.6);
+  }
+
+  nav.links.open {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
   }
 }
 
@@ -577,6 +579,7 @@ select {
 
   .hero-right {
     flex-basis: 100%;
+    min-width: 0;
   }
 
   .menu-grid {
@@ -585,5 +588,52 @@ select {
 
   .chef-img {
     height: 160px;
+  }
+
+  /* logo más pequeño en móvil */
+  .logo img {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+
+  /* se asegura que hero-media no ocupe demasiado */
+  .hero-media {
+    height: 220px;
+  }
+
+  /* inputs: que apilen en móviles */
+  .row {
+    flex-wrap: wrap;
+  }
+
+  .row input {
+    width: 100%;
+  }
+
+  /* nav overlay a pantalla completa (opcional) */
+  nav.links {
+    right: 16px;
+    top: 68px;
+    width: calc(100% - 32px);
+    max-width: none;
+  }
+
+  /* reducir márgenes / padding para pantallas muy pequeñas */
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .hero-left .lead {
+    font-size: 15px;
+  }
+
+  .brand h1 {
+    font-size: 18px;
+  }
+
+  .btn {
+    padding: 10px 12px;
+    font-size: 13px;
   }
 }
