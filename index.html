@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>El Paese — Restaurante (Caracas)</title>
+
+    <!-- Fuentes -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- estilos -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- HEADER / NAV -->
+    <header class="site-header contenedor">
+        <div class="container nav">
+            <div class="brand">
+                <div class="logo" aria-hidden="true">
+                    <img src="assets/Logo.png" alt="Logo">
+                </div>
+                <div>
+                    <h1>El Paese</h1>
+                    <p class="muted">Cocina caraqueña · Producto local</p>
+                </div>
+            </div>
+
+            <nav class="links" aria-label="Navegación principal">
+                <a href="#about">Nosotros</a>
+                <a href="#menu">Menú</a>
+                <a href="#reservas">Reservas</a>
+                <a href="#contact">Contacto</a>
+                <a href="#reservas" class="btn btn-primary">Reservar mesa</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <main id="contenedor" class="container">
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="hero-left">
+                <h2 id="hero-heading">Sabores caraqueños, arte contemporáneo</h2>
+                <p class="lead">Recuperamos recetas venezolanas con técnica moderna: arepas, pabellón, cachapas y más.
+                    Producto local, servicio cuidado y una experiencia para recordar.</p>
+
+                <div class="hero-cta">
+                    <a href="#menu" class="btn btn-ghost">Ver Menú</a>
+                    <a href="#reservas" class="btn btn-primary">Reservar ahora</a>
+                </div>
+
+                <div class="info-row" role="list">
+                    <div role="listitem">
+                        <strong>Horario</strong>
+                        <div class="muted">Lun - Dom: 11:00 — 23:00</div>
+                    </div>
+                    <div role="listitem">
+                        <strong>Ubicación</strong>
+                        <div class="muted">Los Palos Grandes / Caracas</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="card hero-card">
+                    <div class="hero-media">
+                        <img src="assets/pexels-nano-erdozain-120534369-29496091.jpg"
+                            alt="Imagen de https://www.pexels.com/es-es/@nano-erdozain-120534369/" class="hero-img">
+                        <div class="hero-caption">
+                            <div class="hero-title">Arepa reina — Arepa del día</div>
+                            <div class="hero-sub">Carne mechada · aguacate · queso blanco</div>
+                        </div>
+                    </div>
+
+                    <div class="card-foot">
+                        <div class="card-meta">
+                            <div class="card-head">Experiencia caraqueña</div>
+                            <div class="muted">Tradición con toque contemporáneo</div>
+                        </div>
+                        <a href="#reservas" class="btn btn-primary">Reservar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="section">
+            <div class="two-col">
+                <div>
+                    <h3>Nuestra historia</h3>
+                    <p class="muted">Desde Caracas, reinterpretamos recetas clásicas venezolanas usando producto local.
+                        Un espacio íntimo y moderno para disfrutar lo mejor de nuestra gastronomía.</p>
+
+                    <ul class="bullet-list">
+                        <li>• Ingredientes de productores caraqueños y del interior</li>
+                        <li>• Menú estacional y arepas de autor</li>
+                        <li>• Opciones vegetarianas y sin gluten</li>
+                    </ul>
+                </div>
+
+                <div class="card padded chef-card">
+                    <img src="assets/pexels-cottonbro-3298687.jpg"
+                        alt="Imagen de https://www.pexels.com/es-es/@cottonbro/" class="chef-img">
+                    <div class="chef-body">
+                        <h4>Chef & Concepto</h4>
+                        <p class="muted">Liderado por la chef Ana Pérez; cada plato nace de la combinación de producto y
+                            técnica.</p>
+                        <div class="tags">
+                            <span class="pill">Cocina de autor</span>
+                            <span class="pill">Productos locales</span>
+                            <span class="pill">Sostenible</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MENU -->
+        <section id="menu" class="section section-alt">
+            <div class="section-head">
+                <h3>Menú caraqueño destacado</h3>
+                <a href="#contact" class="muted small">Ver menú completo</a>
+            </div>
+
+            <div class="menu-grid">
+                <!-- Arepas & Entradas -->
+                <div class="menu-card">
+                    <img src="assets/pexels-ricardo-suarez-67888328-8305406.jpg"
+                        alt="Imagen de https://www.pexels.com/es-es/@ricardo-suarez-67888328/" class="menu-thumb">
+                    <h4>Arepas & Entradas</h4>
+                    <ul>
+                        <li><span>Arepa Reina Pepiada</span><span class="price">$6.50</span></li>
+                        <li><span>Arepa Pabellón (carne mechada, caraotas, tajadas)</span><span
+                                class="price">$7.90</span></li>
+                        <li><span>Tequeños (6 unidades)</span><span class="price">$5.00</span></li>
+                        <li><span>Empanada de cazón / queso</span><span class="price">$2.50</span></li>
+                    </ul>
+                </div>
+
+                <!-- Platos Fuertes -->
+                <div class="menu-card">
+                    <img src="assets/pexels-hiure-gomes-fernandes-1309965-11094167.jpg"
+                        alt="Imagen de https://www.pexels.com/es-es/@hiure-gomes-fernandes-1309965/" class="menu-thumb">
+                    <h4>Platos fuertes</h4>
+                    <ul>
+                        <li><span>Pabellón criollo (carne mechada, arroz, caraotas, tajadas)</span><span
+                                class="price">$10.50</span></li>
+                        <li><span>Cachapa con queso de mano</span><span class="price">$8.00</span></li>
+                        <li><span>Asado negro (carne glaseada) · puré</span><span class="price">$12.00</span></li>
+                    </ul>
+                </div>
+
+                <!-- Postres & Bebidas -->
+                <div class="menu-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ20806Qlfx-dfDKkBrgintDKWmVP7HhW0Www&s"
+                        alt="Imagen de @mokaccs en Instagram" class="menu-thumb">
+                    <h4>Postres & Bebidas</h4>
+                    <ul>
+                        <li><span>Quesillo caraqueño</span><span class="price">$4.50</span></li>
+                        <li><span>Cachito de jamón (panadería local)</span><span class="price">$2.20</span></li>
+                        <li><span>Malta (botella)</span><span class="price">$2.00</span></li>
+                        <li><span>Jugo natural (mango / parchita / papelón con limón)</span><span
+                                class="price">$2.50</span></li>
+                        <li><span>Refresco</span><span class="price">$1.80</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESERVAS -->
+        <section id="reservas" class="section">
+            <div class="two-col">
+                <div>
+                    <h3>Reserva tu mesa</h3>
+                    <p class="muted">Haz tu reserva en línea o por teléfono. Eventos y menus privados bajo petición.</p>
+                    <ul class="contact-list">
+                        <li>Teléfono: <strong>+58 412 123 4567</strong></li>
+                        <li>Email: <strong>reservas@elpaese.example</strong></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <form class="form-card" onsubmit="event.preventDefault(); alert('Reserva enviada (simulada)');">
+                        <div class="form-grid">
+                            <input type="text" placeholder="Nombre completo" required />
+                            <input type="email" placeholder="Correo o teléfono" required />
+                            <div class="row">
+                                <input type="date" required />
+                                <input type="time" required />
+                            </div>
+                            <select required>
+                                <option value="">Personas</option>
+                                <option>2</option>
+                                <option>4</option>
+                                <option>6</option>
+                                <option>Más</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary">Enviar reserva</button>
+                            <p class="muted small">Formulario de ejemplo — conecta con tu backend para reservas reales.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT / FOOTER -->
+        <section id="contact" class="contact-section">
+            <div class="contact-inner">
+                <div>
+                    <h4>El Paese</h4>
+                    <div class="muted small">Los Palos Grandes · Caracas · +58 412 123 4567</div>
+                </div>
+                <div class="muted small">
+                    <div>Horario: Lun - Dom 11:00 — 23:00</div>
+                    <div style="margin-top:6px;">Síguenos: <span class="link">Instagram</span> · <span
+                            class="link">Facebook</span></div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            © <span id="year"></span> El Paese — Todos los derechos reservados.
+        </footer>
+    </main>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
